@@ -1,0 +1,92 @@
+/* Minimal, readable styles for a classroom setting */
+:root {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --primary-contrast: #ffffff;
+  --secondary: #e5e7eb;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+}
+header, footer { text-align: center; padding: 1rem; }
+main { max-width: 880px; margin: 0 auto; padding: 1rem; }
+
+.card {
+  background: var(--card);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+}
+
+.card + .card { margin-top: 1rem; }
+
+h1 { margin: 0.25rem 0 0.75rem; font-size: 1.75rem; }
+h2 { margin: 0.25rem 0 0.75rem; font-size: 1.25rem; color: #374151; }
+h3 { margin: 0 0 0.5rem; font-size: 1.05rem; color: #1f2937; }
+
+.formula {
+  background: #f3f4f6;
+  border: 1px dashed #cbd5e1;
+  color: #111827;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin: 0.5rem 0 1rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.controls { display: flex; gap: 0.5rem; margin-top: 1rem; }
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  font-weight: 600;
+}
+button.primary { background: var(--primary); color: var(--primary-contrast); }
+button.secondary { background: var(--secondary); color: #111827; }
+button:active { transform: translateY(1px); }
+
+.answer.hidden { display: none; }
+.answer {
+  margin-top: 1rem; padding: 0.75rem; border-radius: 8px;
+  background: #f9fafb; border: 1px solid #e5e7eb; color: #111827;
+}
+
+.code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  background: #eef2ff; border: 1px solid #c7d2fe; padding: 0.1rem 0.4rem; border-radius: 6px;
+}
+
+.katex-block { overflow-x: auto; }
+
+/* Inline column vector styling */
+.colvec {
+  display: inline-grid;
+  grid-template-columns: auto;
+  grid-auto-rows: auto;
+  position: relative;
+  padding: 0.2rem 0.6rem;
+  margin: 0 0.2rem;
+}
+.colvec::before,
+.colvec::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  border: 1.5px solid #9ca3af;
+}
+.colvec::before { left: 0; border-right: none; border-radius: 4px 0 0 4px; }
+.colvec::after { right: 0; border-left: none; border-radius: 0 4px 4px 0; }
+.colvec .row { padding: 0.05rem 0; text-align: center; min-width: 2.5ch; }
